@@ -1,0 +1,11 @@
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+ctgs/__init__.py          1      0   100%
+ctgs/app.py              47      0   100%
+ctgs/cli.py              30      0   100%
+ctgs/constraints.py      48      0   100%
+ctgs/io_utils.py         40      0   100%
+ctgs/models.py           91      0   100%
+ctgs/scheduler.py        57      0   100%
+---------------------------------------------------
+TOTAL                   314      0   100%
