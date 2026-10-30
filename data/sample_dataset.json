@@ -1,0 +1,31 @@
+{
+  "faculty": [
+    {"id": "F1", "name": "Dr. Rao", "unavailable": [["Mon", 1]]},
+    {"id": "F2", "name": "Dr. Iyer"},
+    {"id": "F3", "name": "Prof. Nair"},
+    {"id": "F4", "name": "Dr. Shetty"},
+    {"id": "F5", "name": "Prof. Menon", "unavailable": [["Fri", 5], ["Fri", 6]]},
+    {"id": "F6", "name": "Prof. Kulkarni"}
+  ],
+  "rooms": [
+    {"id": "R101", "capacity": 70},
+    {"id": "R102", "capacity": 60},
+    {"id": "R103", "capacity": 50},
+    {"id": "LAB1", "capacity": 60, "is_lab": true},
+    {"id": "LAB2", "capacity": 60, "is_lab": true}
+  ],
+  "courses": [
+    {"code": "MA101", "name": "Engineering Maths", "hours_per_week": 4, "faculty_id": "F5"},
+    {"code": "CS201", "name": "Data Structures", "hours_per_week": 4, "faculty_id": "F1"},
+    {"code": "CS202", "name": "DBMS", "hours_per_week": 3, "faculty_id": "F2"},
+    {"code": "CS203", "name": "Operating Systems", "hours_per_week": 3, "faculty_id": "F3"},
+    {"code": "CS204", "name": "Software Engineering", "hours_per_week": 3, "faculty_id": "F4"},
+    {"code": "CS205L", "name": "DBMS Lab", "hours_per_week": 2, "faculty_id": "F2", "is_lab": true},
+    {"code": "CS206L", "name": "DS Lab", "hours_per_week": 2, "faculty_id": "F6", "is_lab": true}
+  ],
+  "sections": [
+    {"id": "CSE-A", "strength": 60, "courses": ["MA101","CS201","CS202","CS203","CS204","CS205L","CS206L"]},
+    {"id": "CSE-B", "strength": 55, "courses": ["MA101","CS201","CS202","CS203","CS204","CS205L","CS206L"]},
+    {"id": "ECE-A", "strength": 50, "courses": ["MA101","CS201","CS204","CS206L"]}
+  ]
+}
