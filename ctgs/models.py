@@ -86,6 +86,14 @@ class Dataset:
     def validate(self) -> List[str]:
         """Return a list of human-readable input errors (empty list = valid)."""
         errors: List[str] = []
+        if not self.faculty:
+            errors.append("Dataset must contain at least one faculty member.")
+        if not self.rooms:
+            errors.append("Dataset must contain at least one room.")
+        if not self.courses:
+            errors.append("Dataset must contain at least one course.")
+        if not self.sections:
+            errors.append("Dataset must contain at least one section.")
         for c in self.courses.values():
             if c.faculty_id not in self.faculty:
                 errors.append(f"Course {c.code}: unknown faculty {c.faculty_id}")
