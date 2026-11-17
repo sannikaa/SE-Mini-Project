@@ -31,3 +31,8 @@ def test_tc_u05_infeasible_returns_3(tiny_data, tmp_path):
     p = tmp_path / "d.json"
     p.write_text(json.dumps(tiny_data))
     assert main([str(p), "--out", str(tmp_path)]) == 3
+
+def test_tc_u06_empty_dataset_returns_1(tmp_path):
+    empty = tmp_path / "empty.json"
+    empty.write_text("{}")
+    assert main([str(empty), "--out", str(tmp_path)]) == 1
