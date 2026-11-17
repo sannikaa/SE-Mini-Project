@@ -36,3 +36,9 @@ def test_tc_u06_empty_dataset_returns_1(tmp_path):
     empty = tmp_path / "empty.json"
     empty.write_text("{}")
     assert main([str(empty), "--out", str(tmp_path)]) == 1
+
+def test_tc_u07_output_path_is_file_returns_4(sample_path, tmp_path):
+    output_file = tmp_path / "not_a_directory"
+    output_file.write_text("existing file")
+
+    assert main([sample_path, "--out", str(output_file)]) == 4

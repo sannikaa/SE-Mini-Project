@@ -26,14 +26,18 @@ def main(argv=None) -> int:
         print(f"Scheduling failed: {exc}")
         return 3
 
-    os.makedirs(args.out, exist_ok=True)
-    save_json(entries, os.path.join(args.out, "timetable.json"))
-    save_csv(entries, os.path.join(args.out, "timetable.csv"))
-    with open(os.path.join(args.out, "timetable.html"), "w", encoding="utf-8") as fh:
-        fh.write(render_html(entries, ds))
+    try:
+        os.makedirs(args.out, exist_ok=True)
+        save_json(entries, os.path.join(args.out, "timetable.json"))
+        save_csv(entries, os.path.join(args.out, "timetable.csv"))
+        with open(os.path.join(args.out, "timetable.html"), "w", encoding="utf-8") as fh:
+            fh.write(render_html(entries, ds))
+    except OSError as exc:
+        print(f"Could not write timetable: {exc}")
+        return 4
+
     print(f"Timetable written to {args.out}/ ({len(entries)} sessions)")
     return 0
-
 
 if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(main())
