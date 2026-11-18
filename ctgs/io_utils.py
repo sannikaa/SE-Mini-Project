@@ -75,7 +75,7 @@ button{font:inherit}.layout{display:flex;min-height:100vh}.sidebar{width:225px;f
 
     period_times = ["9:00", "10:00", "11:00", "12:00", "1:00", "2:00"]
     for sec_index, sec_id in enumerate(section_ids):
-        out.append(f'<div class="section-view" data-section="{esc(sec_id, quote=True)}"{" hidden" if sec_index else ""}><div class="scroll"><table class="timetable"><thead><tr><th>DAY</th>')
+        out.append(f'<div class="section-view" data-section="{esc(sec_id, quote=True)}" aria-label="Section {esc(sec_id, quote=True)} timetable"{" hidden" if sec_index else ""}><div class="scroll"><table class="timetable"><thead><tr><th>DAY</th>')
         for p, time in enumerate(period_times, 1):
             out.append(f'<th>PERIOD {p}<span class="time">{time}</span></th>')
         out.append("</tr></thead><tbody>")
@@ -138,7 +138,7 @@ button{font:inherit}.layout{display:flex;min-height:100vh}.sidebar{width:225px;f
     out.append("""</main></div>
 <script>
 const tabs=[...document.querySelectorAll('.tab')],views=[...document.querySelectorAll('.section-view')];
-function choose(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.section===id));views.forEach(v=>v.hidden=v.dataset.section!==id);document.getElementById('section-title').textContent=id+' timetable'}
+function choose(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.section===id));views.forEach(v=>v.hidden=v.dataset.section!==id);document.getElementById('section-title').textContent='Section '+id+' timetable'}
 tabs.forEach(t=>t.addEventListener('click',()=>choose(t.dataset.section)));
 const navItems=[...document.querySelectorAll('.nav[data-page]')],pages=[...document.querySelectorAll('.app-page,.directory-page')];
 function showPage(id){pages.forEach(p=>p.hidden=(p.id||p.dataset.page)!==id);navItems.forEach(n=>n.classList.toggle('active',n.dataset.page===id));const label=id==='timetable'?'Timetable':id[0].toUpperCase()+id.slice(1);document.querySelector('.top strong').textContent=label;window.scrollTo({top:0,behavior:'smooth'})}
