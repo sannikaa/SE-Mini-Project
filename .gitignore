@@ -3,3 +3,8 @@ __pycache__/
 .venv/
 out/
 .coverage*
+# Local demo accounts and timetable workspace state
+/data/users.json
+/data/user_preferences.json
+/data/current_timetable.json
+/data/timetable_status.json
